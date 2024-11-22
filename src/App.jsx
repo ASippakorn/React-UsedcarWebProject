@@ -7,6 +7,15 @@ import Aboutus from "./Pages/Aboutus";
 import Addproductpage from "./Pages/Addproductpage";
 import Adduserpage from "./Pages/Adduserpage";
 
+import Detail from "./Pages/Detail";
+
+import Editpage from "./Pages/Edit";
+import Producthisotrypage from "./Pages/ProductHistorypage";
+import ProductManagement from "./Pages/ProductManagement";
+
+import Edit from "./Pages/Edit";
+
+
 const App = () => {
   return (
     <>
@@ -15,8 +24,14 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/team" element={<Aboutus />} />
+        <Route path="/adduser" element={<Adduserpage/>}/> 
+        <Route path="/edit" element={<Edit/>}/> 
+        <Route path="/usermanagement" element={<Usermanagement/>}/> 
+        <Route path="/useredit" element={<Editpage/>}/> 
+        <Route path="/detail" element={<Detail/>}/>
         <Route path="/addproduct" element={<Addproductpage />} />
-        <Route path="/adduser" element={<Adduserpage/>}/>     
+        <Route path="/producthistory" element={<Producthisotrypage/>}/>     
+        <Route path="/productmanagement" element={<ProductManagement/>}/>   
       </Routes>
     </>
   );

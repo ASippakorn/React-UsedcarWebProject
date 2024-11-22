@@ -94,4 +94,4 @@ const Formaddproduct = () => {
   )
 }
 
-export default Formaddproduct
+export default Formaddproduct;

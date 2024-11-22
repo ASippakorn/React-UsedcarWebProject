@@ -4,6 +4,8 @@ import HomePage from "./Pages/Homepage";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Aboutus from "./Pages/Aboutus";
+import Addproductpage from "./Pages/Addproductpage";
+import Adduserpage from "./Pages/Adduserpage";
 
 const App = () => {
   return (
@@ -13,7 +15,8 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/team" element={<Aboutus />} />
-
+        <Route path="/addproduct" element={<Addproductpage />} />
+        <Route path="/adduser" element={<Adduserpage/>}/>     
       </Routes>
     </>
   );

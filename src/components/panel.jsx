@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react'
 import axios from 'axios';
 import {useState ,useEffect} from 'react'
-function Panel(){
+
+const Panel = () => {
     const[detail,setDetail]= useState([])
 
     const fetchDetail = async()=>{
@@ -26,4 +27,5 @@ function Panel(){
         
     )
 }
-export default panel
+
+export default Panel

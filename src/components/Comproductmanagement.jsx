@@ -3,7 +3,6 @@ import React from 'react'
 const Comproductmanagement = () => {
     return (
       <div>
-        {/* Table Section */}
         <section>
           <table>
             <thead>

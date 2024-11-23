@@ -1,11 +1,14 @@
 import React from 'react'
 import Comdetail from '../components/Comdetail'
 import Footer from '../Components/footer'
+import Header from '../Components/header';
 
-const Detailpage = () => {
-  return (
+const Detailpage = () => (
+  <>
+    <Header/>
     <Comdetail/>
-  )
-}
+    <Footer/>
+  </>
+);
 
 export default Detailpage

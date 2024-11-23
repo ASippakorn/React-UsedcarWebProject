@@ -1,12 +1,8 @@
 import React from 'react'
-import Userhistory from '../components/Userhistory'
-// userhistory
 
 const UserManagement = () => {
   return (
-    <>
-    <Userhistory/>
-    </>
+    <div>UserManagement</div>
   )
 }
 

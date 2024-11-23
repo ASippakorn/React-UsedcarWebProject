@@ -1,10 +1,12 @@
-import React from "react";
-import formeditproduct from "../components/formeditproduct";
+import React from 'react'
+import Comproductmanagement from '../components/Comproductmanagement'
 
 const ProductManagement = () => {
-  return (
-    <formeditproduct/>
-  )
+    return (
+        <>
+            <Comproductmanagement />
+        </>
+    )
 }
 
-export default ProductManagement;
+export default ProductManagement

@@ -1,12 +1,11 @@
-import React from 'react'
-import Formadduser from "../components/Registerform"
+import React from "react";
+import Registerform from "../components/Registerform";
+import Footer from "../Components/footer";
 
-const Adduserpage = () => {
-  return (
+const Adduserpage =()=>(
     <>
-    <Formadduser/>
+        <Registerform/>
+        <Footer/>
     </>
-  )
-}
-
-export default Adduserpage
+)
+export default Adduserpage;

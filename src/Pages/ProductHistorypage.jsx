@@ -9,4 +9,4 @@ const Producthistorypage = () => {
   )
 }
 
-export default Producthistorypage
+export default Producthistorypage;

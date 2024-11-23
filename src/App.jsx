@@ -10,6 +10,7 @@ import Adduserpage from "./Pages/Adduserpage";
 import Detailpage from "./Pages/Detailpage";
 import Producthistorypage from "./Pages/ProductHistorypage";
 import ProductManagement from "./Pages/ProductManagement";
+import Userhistory from "./Pages/Userhistory";
 
 const App = () => {
   return (
@@ -19,11 +20,12 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/team" element={<Aboutus />} />
-        <Route path="/addproduct" element={<Addproductpage />} />   
+        <Route path="/eee" element={<Addproductpage />} />   
         <Route path="/adduser" element={<Adduserpage />} />   
         <Route path="/detail" element={<Detailpage />} />   
         <Route path="/producthistory" element={<Producthistorypage />} />   
         <Route path="/productmanagement" element={<ProductManagement/>} /> 
+        <Route path="/userhistory" element={<Userhistory/>} /> 
       </Routes>
     </>
   );

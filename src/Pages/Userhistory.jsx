@@ -1,6 +1,6 @@
 import React from 'react'
 import Comuserhistory from '../components/Comuserhistory'
-import Footer from '../Components/footer';
+import Footer from '../components/Footer';
 import Header from '../Components/header';
 import Navbar from '../components/Navbar';
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import Comproducthistory from '../components/Comproducthistory'
-import Footer from '../Components/footer';
+import Footer from '../components/Footer';
 import Header from '../Components/header';
 
 const Producthistorypage = () => (

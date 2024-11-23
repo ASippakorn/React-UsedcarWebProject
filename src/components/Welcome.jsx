@@ -9,7 +9,7 @@ const Navigation = () => (
       <Link to="/addproduct" className="text-blue-600 hover:underline">
         Sell car with us
       </Link>
-      <Link to="/Addproduct">Add car</Link>
+      <Link to="/addproduct">Add car</Link>
 
       <form action="/form-search" method="get">
         <input type="text" id="search" name="search" placeholder="Search" />

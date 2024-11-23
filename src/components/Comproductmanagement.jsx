@@ -14,7 +14,7 @@ const Comproductmanagement = () => {
               </tr>
             </thead>
             <tbody>
-              {cars.map((car, index) => (
+              {car.map((car, index) => (
                 <tr key={index}>
                   <td>
                     {car.image ? (

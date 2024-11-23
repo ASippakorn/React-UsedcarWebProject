@@ -1,6 +1,6 @@
 import React from 'react'
 import Comdetail from '../components/Comdetail'
-import Footer from '../Components/footer'
+import Footer from '../components/Footer';
 import Header from '../Components/header';
 
 const Detailpage = () => (

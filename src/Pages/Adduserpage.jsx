@@ -1,6 +1,6 @@
 import React from "react";
 import Registerform from "../components/Registerform";
-import Footer from "../Components/footer";
+import Footer from "../components/Footer";
 
 const Adduserpage =()=>(
     <>

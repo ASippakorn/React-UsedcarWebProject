@@ -3,11 +3,11 @@ import Formaddproduct from "../components/formaddproduct";
 import Footer from "../components/Footer";
 import Header from "../Components/header";
 
-const Addproductpage =()=>(
+const Addproductpage = () => (
       <>
-        <Header/>
-         <Formaddproduct/>
-         <Footer/> 
+            <Header />
+            <Formaddproduct />
+            <Footer />
       </>
 
 );

@@ -11,6 +11,7 @@ import Detailpage from "./Pages/Detailpage";
 import Producthistorypage from "./Pages/ProductHistorypage";
 import ProductManagement from "./Pages/ProductManagement";
 import Userhistory from "./Pages/Userhistory";
+import Search from "./Pages/search";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/addproduct" element={<Addproductpage />} />   
         <Route path="/adduser" element={<Adduserpage />} />   
         <Route path="/detail" element={<Detailpage />} />   
+        <Route path="/search" element={<Search />} />   
         <Route path="/producthistory" element={<Producthistorypage />} />   
         <Route path="/productmanagement" element={<ProductManagement/>} /> 
         <Route path="/userhistory" element={<Userhistory/>} /> 

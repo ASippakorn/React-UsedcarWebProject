@@ -1,1 +1,2 @@
-npm install react-router-dom
+cd client 
+npm install

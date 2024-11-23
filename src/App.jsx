@@ -13,6 +13,8 @@ import Editpage from "./Pages/Edit";
 import Producthisotrypage from "./Pages/ProductHistorypage";
 import ProductManagement from "./Pages/ProductManagement";
 
+import UserManagement from "./Pages/UserManagement";
+
 import Edit from "./Pages/Edit";
 
 
@@ -26,7 +28,7 @@ const App = () => {
         <Route path="/team" element={<Aboutus />} />
         <Route path="/adduser" element={<Adduserpage/>}/> 
         <Route path="/edit" element={<Edit/>}/> 
-        <Route path="/usermanagement" element={<Usermanagement/>}/> 
+        <Route path="/usermanagement" element={<UserManagement/>}/> 
         <Route path="/useredit" element={<Editpage/>}/> 
         <Route path="/detail" element={<Detail/>}/>
         <Route path="/addproduct" element={<Addproductpage />} />

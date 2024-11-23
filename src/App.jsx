@@ -9,6 +9,7 @@ import Adduserpage from "./Pages/Adduserpage";
 import Detailpage from "./Pages/Detailpage";
 import Producthistorypage from "./Pages/ProductHistorypage";
 import ProductManagement from "./Pages/ProductManagement";
+import Userhistory from "./Pages/Userhistory";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/detail" element={<Detailpage />} />   
         <Route path="/producthistory" element={<Producthistorypage />} />   
         <Route path="/productmanagement" element={<ProductManagement/>} /> 
+        <Route path="/userhistory" element={<Userhistory/>} /> 
       </Routes>
     </>
   );

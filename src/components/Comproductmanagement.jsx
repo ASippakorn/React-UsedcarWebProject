@@ -31,12 +31,19 @@ const Comproductmanagement = () => {
                   <td>{car.brand}</td>
                   <td>{car.model}</td>
                   <td>
-                    <a href={`/edit/${car.carid}`}>Edit</a>
-                    <a
-                      href={`/delete/${car.carid}`}
-                      onClick={() => window.confirm("Delete this car?")}
-                    >
-                      Delete
+                  <button onClick={() => window.location.href = `/edit/${car.carid}`}>
+  Edit
+</button>
+<button
+  onClick={() => {
+                  if (window.confirm("Delete this car?")) {
+                    window.location.href = `/delete/${car.carid}`;
+                  }
+                }}
+              >
+                Delete
+</button>
+
                     </a>
                   </td>
                 </tr>

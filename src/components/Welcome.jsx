@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Searchbar from "./Searchbar";
 
 
 const Navigation = () => (
@@ -9,12 +10,7 @@ const Navigation = () => (
       <Link to="/addproduct" className="text-blue-600 hover:underline">
         Sell car with us
       </Link>
-      <Link to="/addproduct">Add car</Link>
-
-      <form action="/form-search" method="get">
-        <input type="text" id="search" name="search" placeholder="Search" />
-        <button type="submit">Search</button>
-      </form>
+      <Searchbar/>
     </div>
   </nav>
 );

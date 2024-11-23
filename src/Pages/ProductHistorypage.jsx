@@ -1,14 +1,12 @@
-import React from "react";
-import Formproducthistory from "../components/formproducthistory";
-import Footer from "../Components/Footer";
+import React from 'react'
+import Comproducthistory from '../components/Comproducthistory'
 
-
-const Producthisotrypage = () => {
+const Producthistorypage = () => {
   return (
     <>
-      <Formproducthistory/>
-      <Footer/>
+        <Comproducthistory/>
     </>
   )
 }
-export default Producthisotrypage;
+
+export default Producthistorypage

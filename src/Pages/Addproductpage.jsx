@@ -1,6 +1,6 @@
 import React from "react";
 import Formaddproduct from "../components/formaddproduct";
-import Footer from "../Components/Footer";
+import Footer from "../components/Footer";
 
 const Addproductpage =()=>{
     return (

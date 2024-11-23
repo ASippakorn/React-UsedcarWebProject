@@ -7,7 +7,7 @@ const Panel = () => {
 
     const getDetail = async()=>{
         try{
-            const response = axios.get('http:/localhost:3030/detail/1/')
+            const response = axios.get('http:/localhost:3030/detail/')
             setDetail(response.data)
         }catch(error){
             console.log('error',error)

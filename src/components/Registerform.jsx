@@ -45,7 +45,8 @@ const Registerform = () => (
   />
   <br />
   <br />
-  <input type="submit" defaultValue="Submit" />
+  <input type="submit"/>
+  <br/>
   
 </form>
 

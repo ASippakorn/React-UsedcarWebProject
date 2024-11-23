@@ -1,13 +1,19 @@
 import React from 'react'
 
-const Checkuser = () => {
+const Checkuser = ({ user }) => {
     return (
         <>
-            <h1> Hello <span id="checkusername" /> </h1>
-            <h1> Email : <span id="checkemail" /> </h1>
-            <p>Welcome to the home page</p>
+            {typeof user != 'undefined' && (
+                <>
+                    <h1> Hello < span id="checkusername" /> {user.name}</h1>
+                    <h1> Email : <span id="checkemail" />{user.email} </h1>
+                    <p>Welcome to the home page</p>
+                </>
+            )
+
+            }
         </>
-    )
-}
+    );
+};
 
 export default Checkuser;

@@ -62,7 +62,7 @@ const Userhistory = () => {
           </tbody>
         </table>
         </>
-      ):(
+      ):( //else
         <p>No user data available.</p>
       )}
       </div>

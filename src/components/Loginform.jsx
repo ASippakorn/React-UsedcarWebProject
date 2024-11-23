@@ -35,6 +35,8 @@ const Loginform = ()=>(
         <button type="submit">Login</button>
       </div>
     </form>
+    
   </main>
+  
 );
 export default Loginform;

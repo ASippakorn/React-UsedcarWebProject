@@ -89,6 +89,7 @@ const Formaddproduct = () => {
         <br />
         <button className="submit-btn">Create</button>
     </form>
+    <a href="javascript:history.back()">Back</a>
 </div>
 
   )

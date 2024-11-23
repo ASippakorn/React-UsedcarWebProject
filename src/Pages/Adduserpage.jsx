@@ -7,5 +7,5 @@ const Adduserpage =()=>(
         <Registerform/>
         <Footer/>
     </>
-)
+);
 export default Adduserpage;

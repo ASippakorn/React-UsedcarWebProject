@@ -4,8 +4,7 @@ import Footer from '../Components/footer';
 import Header from '../Components/header';
 import Navbar from '../components/Navbar';
 
-const Userhistory = () => {
-    return (
+const Userhistory = () => (
         <>
             <Header/>
             <Navbar/>
@@ -13,6 +12,6 @@ const Userhistory = () => {
             <Footer/>
         </>
     )
-}
+
 
 export default Userhistory;

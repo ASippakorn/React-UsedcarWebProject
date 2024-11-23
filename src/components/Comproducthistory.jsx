@@ -3,7 +3,6 @@ import React from "react";
 const Comproducthistory = ({ cars }) => {
   return (
     <div>
-      {/* History */}
       <div className="car-list">
         {cars.map((car, index) => (
           <div className="car" key={index}>

@@ -1,16 +1,31 @@
 import React from "react";
 
-const Searchbar = () => (
-    <form action="/form-search" method="get">
-    <input
+import { useState } from "react";
+
+const Searchbar = () => {
+  const [query, setQuery] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Search query:", query);
+    // Add your search logic or redirect here
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
         type="text"
         id="search"
-        name="productSearch"
+        name="search"
         placeholder="Search Product"
-    />
-    <button type="submit">Search</button>
+        value={query}
+        onChange={(e) => setQuery(e.target.value)} // Update state with input value
+      />
+      <button type="submit">Search</button>
     </form>
-
-);
+  );
+};
 
 export default Searchbar;
+
+

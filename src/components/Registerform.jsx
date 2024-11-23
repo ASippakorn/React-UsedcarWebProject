@@ -46,7 +46,7 @@ const Registerform = () => (
   <br />
   <br />
   <input type="submit" defaultValue="Submit" />
-  <a href="javascript:history.back()">Back</a>
+  
 </form>
 
 );

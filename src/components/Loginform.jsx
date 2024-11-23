@@ -2,6 +2,23 @@ import React from "react";
 
 const Loginform = ()=>(
     <main>
+      {/* const handleLogin = async (event) => {
+    event.preventDefault();
+    const response = await fetch('/form-login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+        // Redirect manually
+        window.location.href = data.redirect;
+    } else {
+        alert(data.msg); // Show error message
+    }
+}; */}
     <form action="/form-login" method="POST">
       <div>
         <input

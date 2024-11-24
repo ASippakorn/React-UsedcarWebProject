@@ -43,7 +43,7 @@ const Formaddproduct = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:3030/register", formData, {
+      const res = await axios.post("http://localhost:3030/create", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       console.log("Response from server:", res.data);

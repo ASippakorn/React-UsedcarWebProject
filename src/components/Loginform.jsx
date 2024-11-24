@@ -17,10 +17,11 @@ const Loginform = () => {//may add toastify later
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    console.log("Submitting Form:", form);
     try {
       const res = await axios.post(`http://localhost:3030/login`, form);
-      alert("Registration successful!");
+      console.log("Response from server:", res.data);
+      // alert("Registration successful!");
       navigate("/");
     } catch (err) {
       console.error("Error during registration:", err);

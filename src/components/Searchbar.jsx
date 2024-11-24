@@ -5,11 +5,14 @@ import { useState } from "react";
 const Searchbar = () => {
   const [query, setQuery] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Search query:", query);
-    // Add your search logic or redirect here
-  };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Search query:", query);
+  //   try{
+  //     const response = await axios.get(`http://localhost:3030/search`),{
+  //       params:{query},
+  // };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -24,7 +27,9 @@ const Searchbar = () => {
       <button type="submit">Search</button>
     </form>
   );
-};
+    }
+  
+
 
 export default Searchbar;
 

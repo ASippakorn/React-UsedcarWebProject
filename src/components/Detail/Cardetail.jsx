@@ -1,8 +1,10 @@
 import React from "react";
-
+import Carimage from "./Carimage";
 const Cardetail = () => {
   return (
+        
         <section className="car-info">
+          <Carimage/>
           <div>
             {car && Object.keys(car).length > 0 ? (
               <>

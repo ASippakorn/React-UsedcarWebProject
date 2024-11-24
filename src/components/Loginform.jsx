@@ -1,59 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom"; 
+const Loginform = () => {//may add toastify later
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm(() => ({
+      ...form,
+      [name]: value, // Update only the changed field
+    }));
+  };
 
-const Loginform = ()=>(
-    <main>
-      {/* const handleLogin = async (event) => {
-    event.preventDefault();
-    const response = await fetch('/form-login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-        // Redirect manually
-        window.location.href = data.redirect;
-    } else {
-        alert(data.msg); // Show error message
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const res = await axios.post(`http://localhost:3030/login`, form);
+      alert("Registration successful!");
+      navigate("/");
+    } catch (err) {
+      console.error("Error during registration:", err);
+      alert("An error occurred. Please try again.");
     }
-}; */}
-    <form action="/form-login" method="POST">
-      <div>
+  };
+
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <h3>Login</h3>
+        <label htmlFor="username">Username:</label>
+        <br />
         <input
           type="text"
           id="username"
           name="username"
-          required=""
-          placeholder="username"
+          placeholder="Enter your Username"
+          value={form.username}
+          onChange={handleChange}
+          required
         />
-      </div>
-      <div>
+        <br />
+        <label htmlFor="password">Password:</label>
+        <br />
         <input
           type="password"
           id="password"
           name="password"
-          required=""
-          placeholder="password"
+          placeholder="Enter your Password"
+          value={form.password}
+          onChange={handleChange}
+          required
+          minLength="4"
         />
-      </div>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            id="remember-password"
-            name="remember-password"
-          />
-          Remember Password
-        </label>
-      </div>
-      <div>
+        <br />
+        <br />
         <button type="submit">Login</button>
-      </div>
-    </form>
-    
-  </main>
-  
-);
+      </form>
+    </>
+  );
+};
+
 export default Loginform;

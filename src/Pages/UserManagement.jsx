@@ -4,8 +4,8 @@ import Comusermanagement from '../components/Comusermanagement'
 
 const UserManagement = () => {
   return (
-    <UserManagement/>
+    <Comusermanagement/>
   )
 }
 
-export default UserManagement
+export default UserManagement;

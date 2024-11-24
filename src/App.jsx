@@ -10,7 +10,7 @@ import Adduserpage from "./Pages/Adduserpage";
 import Detailpage from "./Pages/Detailpage";
 
 import ProductManagement from "./Pages/ProductManagement";
-
+import UserManagement from "./Pages/UserManagement";
 import Search from "./Pages/search";
 
 const App = () => {
@@ -26,6 +26,7 @@ const App = () => {
         <Route path="/detail" element={<Detailpage />} />   
         <Route path="/search" element={<Search />} />    
         <Route path="/productmanagement" element={<ProductManagement/>} /> 
+        <Route path="/usermanagement" element={<UserManagement/>} /> 
       </Routes>
     </>
   );

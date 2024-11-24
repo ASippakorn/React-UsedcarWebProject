@@ -9,7 +9,6 @@ const Search =()=>(
     <>
         <Header/>
         <Navbar/>
-        <Searchbar/>
         <Panel/>
         <Footer/>
     </>

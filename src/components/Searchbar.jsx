@@ -15,7 +15,7 @@ const Searchbar = () => {
   // };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form >
       <input
         type="text"
         id="search"

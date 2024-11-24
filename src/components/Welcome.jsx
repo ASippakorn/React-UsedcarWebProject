@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Searchbar from "./Searchbar";
+
 
 
 const Navigation = () => (
@@ -10,7 +10,9 @@ const Navigation = () => (
       <Link to="/addproduct" className="text-blue-600 hover:underline">
         Sell car with us
       </Link>
-      <Searchbar/>
+      <Link to="/search" className="text-center text-lg text-gray-700">
+      Visit website
+    </Link>
     </div>
   </nav>
 );

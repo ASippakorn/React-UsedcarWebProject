@@ -10,7 +10,8 @@ const Detail = () => {
     const getItemDetail = async () => {
         try {
             const response = await axios.get(`http://localhost:3030/detail/${id}`);
-            setItemDetail(response.data);
+            setItemDetail(response.data.car);
+
             setLoading(false);
         } catch (error) {
             console.error("Error fetching item details:", error);
@@ -32,15 +33,17 @@ const Detail = () => {
 
     return (
         <div>
-            <h1>{itemDetail.brand} - {itemDetail.model}</h1>
+            <h1>{itemDetail.brand}  - <strong>{itemDetail.model} </strong> Year:{itemDetail.Year}</h1>
             <img 
-                src={itemDetail.image || "/pic/noimage.jpg"} 
+                src={itemDetail.image || "/img/noimage.jpg"} 
                 alt={itemDetail.model} 
                 width="500" 
             />
             <p><strong>Brand:</strong> {itemDetail.brand}</p>
             <p><strong>Model:</strong> {itemDetail.model}</p>
             <p><strong>Price:</strong> ${itemDetail.price}</p>
+            <p><strong>Mileage:</strong> {itemDetail.mileage+" KM "} </p>
+            <p><strong>Fuel Type:</strong> {itemDetail.fuel}</p>
             <p><strong>Description:</strong> {itemDetail.description}</p>
         </div>
     );

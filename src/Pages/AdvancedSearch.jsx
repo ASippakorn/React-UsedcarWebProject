@@ -99,7 +99,7 @@ const AdvancedSearch = () => {
                             <div className="form-group">
                                 <label htmlFor="carType">Car Type</label>
                                 <select name="cartype" id="carType" value={filters.cartype} onChange={handleInputChange}>
-                                    <option value="">Select</option>
+                                    <option value="">Other</option>
                                     <option value="SUV">SUV</option>
                                     <option value="Sedan">Sedan</option>
                                     <option value="Coupe">Coupe</option>
@@ -111,21 +111,14 @@ const AdvancedSearch = () => {
                                     type="range"
                                     id="year"
                                     name="year"
-                                    min="2014"
+                                    min="1950"
                                     max="2024"
                                     value={filters.year || 2014}
                                     onChange={handleInputChange}
                                 />
                                 <span>{filters.year || "2014"}</span>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="price">Price</label>
-                                <select name="price" id="price" onChange={handleInputChange}>
-                                    <option value="250000">$250,000</option>
-                                    <option value="500000">$500,000</option>
-                                    <option value="750000">$750,000</option>
-                                </select>
-                            </div>
+
                         </div>
 
                         <div className="right-section">

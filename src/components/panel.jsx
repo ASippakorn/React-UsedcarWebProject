@@ -2,21 +2,23 @@ import React from 'react'
 import axios from 'axios'
 
 import { useState, useEffect } from 'react'
-
+import { Link } from 'react-router-dom'
 const Panel = () => {
     const [detail, setDetail] = useState([])
     const [search, setSearch] = useState("")
 
+    
     const getDetail = async () => {
         try {
             const response = await axios.get(`http://localhost:3030/search`)
-
+            console.log(response)
             setDetail(response.data.car)
 
         } catch (error) {
             console.log('error', error)
         }
     }
+
     useEffect(() => {
         getDetail()
 
@@ -49,7 +51,7 @@ const Panel = () => {
 
                     {filteredDetails.length > 0 ? (
                         <ul>
-                            {filteredDetails.map((item, index) => (
+                            {filteredDetails.map((item, index) => (//car img
                                 <li key={index}>
                                     {item.image ? (
                                         <img src={`/pic/noimage.jpg`} alt="Car" />
@@ -63,7 +65,8 @@ const Panel = () => {
                                         </p>
                                     )}
                                     {item.brand} - <strong>{item.model}</strong> <br/>
-                                    <button>Contact Owner</button>
+                                    {/* <button onSubmit = {handleDescrip(item.carid)}>Description..</button> */}
+                                    <Link to={`/detail/${item.carid}`}>Description..</Link>
                                 </li>
                                
                             ))}
@@ -74,23 +77,7 @@ const Panel = () => {
 
                     }
                 </form>
-                // detail && Array.isArray(detail) ? detail.map((item, key) => {
-                //     return <div key={key}>
-                //         {car.image ? (
-                //             <img src={`/pic/noimage.jpg`} alt="Car" />
-                //         ) : (
-                //             <p>
-                //                 <img
-                //                     src="/pic/noimage.jpg"
-                //                     alt="No Image Available"
-                //                     width="500"
-                //                 />
-                //             </p>
-                //         )}
-                //         <strong>{item.brand}</strong> {item.model} <br />
-                //         <button > Contact Owner </button>
-                //     </div>
-                // }) : "No data"
+
             }
         </>
     )

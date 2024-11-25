@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+
 const Panel = () => {
     const [detail, setDetail] = useState([])
     const [search, setSearch] = useState("")
@@ -18,7 +19,7 @@ const Panel = () => {
             console.log('error', error)
         }
     }
-
+    
     useEffect(() => {
         getDetail()
 
@@ -48,7 +49,7 @@ const Panel = () => {
                         value={search}
                         onChange={(e) => setSearch(e.target.value)} // Update state with input value
                     />
-
+                    <Link to="/advancedsearch" > ADVANCED SEARCH</Link>
                     {filteredDetails.length > 0 ? (
                         <ul>
                             {filteredDetails.map((item, index) => (//car img

@@ -1,0 +1,32 @@
+.car-selection {
+    display: flex;
+    flex-wrap: wrap; /* Ensures the labels wrap if there are too many */
+    gap: 10px; /* Adds spacing between labels */
+}
+
+.car-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px; /* Adjust width as needed */
+    text-align: center;
+    border: 1px solid #ddd; /* Optional: Adds a border */
+    padding: 10px;
+    border-radius: 8px; /* Optional: Rounded corners */
+    transition: transform 0.2s; /* Optional: Add a hover effect */
+}
+
+.car-label:hover {
+    transform: scale(1.05); /* Makes the label slightly larger on hover */
+    cursor: pointer;
+}
+
+.car-logo {
+    width: 100%; /* Makes the logo responsive */
+    height: auto; /* Preserves aspect ratio */
+    max-width: 80px; /* Optional: Set maximum width for logos */
+}
+
+.car-info {
+    margin-top: 10px;
+}

@@ -1,34 +1,46 @@
-import React from 'react'
-//Not done
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+
 const Carimage = () => {
-  return (
-    <main className="content">
-      <article className="car-title">
-        <h3>
-          {car.brand + " " + car.model}{" "}
-          {car.carcertified && (
-            <span className="verified-label">
-              <img src="/pic/verify.png" alt="Verified" width="30" />
-            </span>
-          )}
-        </h3>
-        <h4>Cartype: {car.cartype}</h4>
-        <div className="car">
-          {car.image ? (
-            <img src={`/uploads/${car.image}`} alt="Car" />
-          ) : (
-            <p>
-              <img
-                src="/pic/noimage.jpg"
-                alt="No Image Available"
-                width="500"
-              />
-            </p>
-          )}
+    const { id } = useParams(); // Extracting the `id` from the route parameter
+    const [cardetail,setCardetail] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    const getCardetail = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3030/detail/${id}`);
+            setCardetail(response.data.car);
+
+            setLoading(false);
+        } catch (error) {
+            console.error("Error fetching item details:", error);
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        getCardetail();
+    }, [id]);
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
+    if (!cardetail) {
+        return <p>Item not found!</p>;
+    }
+
+    return (
+        <div>
+            
+            <img 
+                src={cardetail.image || "/img/noimage.jpg"} 
+                alt={cardetail.model} 
+                width="500" 
+            />
         </div>
-      </article>
-      </main>
-  )
-}
+    );
+};
 
 export default Carimage;

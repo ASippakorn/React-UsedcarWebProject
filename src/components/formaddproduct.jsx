@@ -48,6 +48,9 @@ const Formaddproduct = () => {
       });
       console.log("Response from server:", res.data);
       alert("Create successful!");
+      if (res.data.imageUrl) {
+        console.log("Uploaded image URL:", res.data.imageUrl);
+    }
       navigate("/");
     } catch (err) {
       console.error("Error during Create product:", err);

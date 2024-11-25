@@ -8,6 +8,13 @@ const Team = () => (
     <p className="name">Kantanat Chamnien</p>
     <p className="email">Email : kantanat.cha@mahidol.ac.th</p>
     <p className="id">ID: 6687008</p>
+    <a 
+        href="https://www.instagram.com/kkachbb/" 
+        target="_blank" //Open in new tab
+        title="Social Link"
+      >
+        IG: KKACHBB
+      </a>
   </div>
   <div className="team-member">
     <img src="profile2.jpg" alt="Sippakorn Chotiwachira" />

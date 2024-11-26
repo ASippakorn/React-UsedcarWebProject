@@ -4,17 +4,17 @@ import axios from 'axios';
 
 import { useState, useEffect } from 'react'
 
-import './NavBar.css';
+import './css/NavBar.css';
 
 const Navbar = () => {
   axios.defaults.withCredentials = true
   const [isAuth, setisAuth] = useState(false)
   const [currentUser, setCurrentUser] = useState(null);
-  const getAuth = async () => { 
+  const getAuth = async () => {
     try {
       const response = await axios.post(`http://localhost:3030/auth`
-     
-    )
+
+      )
 
       setisAuth(response.data.isAuth)
       setCurrentUser(response.data.currentUser)
@@ -25,10 +25,10 @@ const Navbar = () => {
     }
   }
   useEffect(() => {
-    
+
     getAuth();
   }, [])
- 
+
   const handleLogout = async () => {
     try {
       await axios.post(`http://localhost:3030/logout`);
@@ -49,14 +49,6 @@ const Navbar = () => {
         <li>
           <Link to="/team">About US</Link>
         </li>
-        
-            <li>
-              <Link to="/login">Log In</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
-        
       </ul>
 
 
@@ -68,19 +60,25 @@ const Navbar = () => {
               <button onClick={handleLogout}>Logout</button>
             </li>
             <li>
-              <Link to ="/productmanagement">Product Management</Link>
+              <Link to="/productmanagement">Product Management</Link>
             </li>
             <li>
-              <Link to ="/usermanagement">User management</Link>
+              <Link to="/usermanagement">User management</Link>
             </li>
           </ul>
         </>
       ) : (
         <>
+          <li>
+            <Link to="/login">Log In</Link>
+          </li>
+          <li>
+            <Link to="/register">Register</Link>
+          </li>
 
         </>
       )}
     </>
   );
-} 
+}
 export default Navbar

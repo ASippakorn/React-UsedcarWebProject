@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; 
 
-import './NavBar.css';
+
 
 const Loginform = () => {//may add toastify later
   const [form, setForm] = useState({

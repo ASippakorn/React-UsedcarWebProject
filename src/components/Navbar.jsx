@@ -49,35 +49,36 @@ const Navbar = () => {
         <li>
           <Link to="/team">About US</Link>
         </li>
+
+        {isAuth ? (
+          <>
+            <ul>
+              <li>Welcome, {currentUser.username || currentUser.email}!</li>
+              <li>
+                <button onClick={handleLogout}>Logout</button>
+              </li>
+              <li>
+                <Link to="/productmanagement">Product Management</Link>
+              </li>
+              <li>
+                <Link to="/usermanagement">User management</Link>
+              </li>
+            </ul>
+          </>
+        ) : (
+          <>
+            <li>
+              <Link to="/login">Log In</Link>
+            </li>
+            <li>
+              <Link to="/register">Register</Link>
+            </li>
+
+          </>
+        )}
       </ul>
 
 
-      {isAuth ? (
-        <>
-          <ul>
-            <li>Welcome, {currentUser.username || currentUser.email}!</li>
-            <li>
-              <button onClick={handleLogout}>Logout</button>
-            </li>
-            <li>
-              <Link to="/productmanagement">Product Management</Link>
-            </li>
-            <li>
-              <Link to="/usermanagement">User management</Link>
-            </li>
-          </ul>
-        </>
-      ) : (
-        <>
-          <li>
-            <Link to="/login">Log In</Link>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-
-        </>
-      )}
     </>
   );
 }

@@ -33,7 +33,9 @@ const Comusermanagement = () => {//Onedit + Ondelete func missing!
 
   return (// Email Username password Phonenum edit delete
     <>
+    
     <div>
+      
       {userdetail && Array.isArray(userdetail) && userdetail.length > 0 ? (
         <table border="1" style={{ borderCollapse: 'collapse', width: '100%' }}>
           <thead>

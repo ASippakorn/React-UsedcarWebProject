@@ -19,21 +19,26 @@ const Comproductmanagement = () => {
 
   // Delete car function
   const onDelete = async (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this car?");
+    if (!confirmDelete) {
+      return; // If the user cancels, exit the function
+    }
     try {
-      await axios.delete(`http://localhost:3030/delete/car/${car.carid}`);
-      // Update the state to remove the deleted car
-      setCarDetails((prevCars) => prevCars.filter((car) => car.id !== id));
+      await axios.delete(`http://localhost:3030/delete/car/${id}`)
+      .then(res=>window.location.reload())
+      .catch(err=>console.log(err))
     } catch (err) {
       console.error('Error deleting car:', err);
     }
   };
-
+  
   useEffect(() => {
     getCarDetails();
   }, []);
 
   return (
     <>
+    <h1>PRODUCT MANAGEMENT OVERVIEW</h1>
       <div>
         {carDetails && Array.isArray(carDetails) && carDetails.length > 0 ? (
           <table border="1" style={{ borderCollapse: 'collapse', width: '100%' }}>
@@ -54,7 +59,7 @@ const Comproductmanagement = () => {
                 
                   <td>
                     <Link to={`http://localhost:5173/edit/car/${car.carid}`}>Edit</Link>
-                    <button onClick={() => onDelete(car.id)}>Delete</button>
+                    <button onClick={() => onDelete(car.carid)}>Delete</button>
                   </td>
                 </tr>
               ))}

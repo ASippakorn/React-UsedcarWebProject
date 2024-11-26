@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 import Mainhome from "../Components/mainhome";
 import Footer from "../components/Footer";
 
-
 const HomePage = () => (
   <>
     <Header />

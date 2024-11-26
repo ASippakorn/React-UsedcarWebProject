@@ -58,6 +58,12 @@ const Navbar = () => {
             <li>
               <button onClick={handleLogout}>Logout</button>
             </li>
+            <li>
+              <Link to ="/productmanagement">Product Management</Link>
+            </li>
+            <li>
+              <Link to ="/usermanagement">User management</Link>
+            </li>
           </ul>
         </>
       ) : (

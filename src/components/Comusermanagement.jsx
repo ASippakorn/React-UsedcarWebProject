@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import axios from "axios"
+import { Link } from 'react-router-dom'
 const Comusermanagement = () => {//Onedit + Ondelete func missing!
   const [userdetail, setUserdetail] = useState([])
 
@@ -16,14 +17,17 @@ const Comusermanagement = () => {//Onedit + Ondelete func missing!
  
 
   const onDelete = async (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this user?");
+   
+    if (!confirmDelete) {
+      return; // If the user cancels, exit the function
+    }
     try {
-      // Make the DELETE request
-      await axios.delete(`http://localhost:3030/delete/user/${id}`);
-      
-      // Update the state to remove the deleted user
-      setUserdetail(users.filter((user) => user.id !== id));
+      await axios.delete(`http://localhost:3030/delete/user/${id}`)
+      .then(res=>window.location.reload())
+      .catch(err=>console.log(err))
     } catch (err) {
-      console.error("Error deleting user:", err);
+      console.error('Error deleting user:', err);
     }
   };
   useEffect(() => {
@@ -42,18 +46,20 @@ const Comusermanagement = () => {//Onedit + Ondelete func missing!
             <tr>
               <th>Email</th>
               <th>Username</th>
-              <th>Phone Number</th>
+              <th>Phonenum</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {userdetail.map((item, key) => (
+            {userdetail.map((user, key) => (
               <tr key={key}>
-                <td>{item.email}</td>
-                <td>{item.username}</td>
-                {/* <td>{item.phonenum}</td>
-                <Link to={`edit/car/${item.carid}`}>Edit</Link> */}
-                <button onClick={() => onDelete(item)}>Delete</button>
+                <td>{user.email}</td>
+                <td>{user.username}</td>
+                <td>{user.phonenum}</td>
+        
+                {/* <td>{item.phonenum}</td> */}
+                <td><Link to={`edit/car/${user.UserID}`}>Edit</Link></td>
+                <td> <button onClick={() => onDelete(user.UserID)}>Delete</button></td>
               </tr>
             ))}
           </tbody>

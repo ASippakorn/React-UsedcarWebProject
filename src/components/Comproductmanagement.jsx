@@ -58,8 +58,8 @@ const Comproductmanagement = () => {
                   <td>{car.year}</td>
                 
                   <td>
-                    <Link to={`http://localhost:5173/edit/car/${car.carid}`}>Edit</Link>
-                    <button onClick={() => onDelete(car.carid)}>Delete</button>
+                    <Link to={`http://localhost:5173/edit/car/${car.carid}`}>Edit</Link></td>
+                    <td><button onClick={() => onDelete(car.carid)}>Delete</button>
                   </td>
                 </tr>
               ))}

@@ -13,6 +13,7 @@ import ProductManagement from "./Pages/ProductManagement";
 import UserManagement from "./Pages/UserManagement";
 import Search from "./Pages/search";
 import AdvancedSearch from "./Pages/AdvancedSearch";
+import Editproduct from "./Pages/Editproduct";
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/productmanagement" element={<ProductManagement/>} /> 
         <Route path="/usermanagement" element={<UserManagement/>} /> 
         <Route path="/advancedsearch" element={<AdvancedSearch/>} /> 
+        <Route path="/edit/car/:id" element={<Editproduct/>} /> 
         
       </Routes>
     </>

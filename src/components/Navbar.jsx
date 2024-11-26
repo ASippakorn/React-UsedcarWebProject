@@ -7,7 +7,9 @@ const Navbar = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const getAuth = async () => {
     try {
-      const response = await axios.get(`http://localhost:3030/auth`)
+      const response = await axios.post(`http://localhost:3030/auth`,{},
+      { withCredentials: true } // Include cookies in the request
+    )
 
       setisAuth(response.data.isAuth)
       setCurrentUser(response.data.currentUser)
@@ -17,7 +19,7 @@ const Navbar = () => {
     }
   }
   useEffect(() => {
-    console.log('useEffect triggered');
+    
     getAuth();
   }, [])
  
@@ -69,5 +71,5 @@ const Navbar = () => {
       )}
     </>
   );
-}
+} 
 export default Navbar

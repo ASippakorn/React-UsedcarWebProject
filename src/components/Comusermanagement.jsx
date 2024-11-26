@@ -13,7 +13,19 @@ const Comusermanagement = () => {//Onedit + Ondelete func missing!
       console.log('error', error)
     }
   }
+ 
 
+  const onDelete = async (id) => {
+    try {
+      // Make the DELETE request
+      await axios.delete(`http://localhost:3030/delete/user/${id}`);
+      
+      // Update the state to remove the deleted user
+      setUserdetail(users.filter((user) => user.id !== id));
+    } catch (err) {
+      console.error("Error deleting user:", err);
+    }
+  };
   useEffect(() => {
     getuserdetail();
   }, [])
@@ -37,8 +49,8 @@ const Comusermanagement = () => {//Onedit + Ondelete func missing!
               <tr key={key}>
                 <td>{item.email}</td>
                 <td>{item.username}</td>
-                <td>{item.phonenum}</td>
-                <button onClick={() => onEdit(item)}>Edit</button>
+                {/* <td>{item.phonenum}</td>
+                <Link to={`edit/car/${item.carid}`}>Edit</Link> */}
                 <button onClick={() => onDelete(item)}>Delete</button>
               </tr>
             ))}

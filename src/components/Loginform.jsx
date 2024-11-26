@@ -36,8 +36,8 @@ const Loginform = () => {//may add toastify later
   return (
     <>
     <h3>Login</h3>
-      <form onSubmit={handleSubmit} class="login" >
-      <div class="container" >
+      <form onSubmit={handleSubmit} className="login" >
+      <div className="container" >
         
         <label htmlFor="username">Username:</label>
         <br />

@@ -14,6 +14,8 @@ import UserManagement from "./Pages/UserManagement";
 import Search from "./Pages/search";
 import AdvancedSearch from "./Pages/AdvancedSearch";
 import Editproduct from "./Pages/Editproduct";
+import Protectedroutes from "./components/ีutils/Protectedroutes";
+import Authroutes from "./components/ีutils/Authroutes";
 
 
 const App = () => {
@@ -26,16 +28,20 @@ const App = () => {
         <Route path="/team" element={<Aboutus />} />
         <Route path="/search" element={<Search />} />    
 
+       
+        <Route path="/edit/car/:id" element={<Editproduct/>} />        
+      
 
-        <Route path="/addproduct" element={<Addproductpage />} />   
-        <Route path="/detail/:id" element={<Detailpage />} />   
-        <Route path="/edit/car/:id" element={<Editproduct/>} /> 
+       
+
         <Route path="/productmanagement" element={<ProductManagement/>} /> 
         <Route path="/adduser" element={<Adduserpage />} />   
         <Route path="/usermanagement" element={<UserManagement/>} /> 
+        <Route path="/addproduct" element={<Addproductpage />} />   
+        <Route path="/detail/:id" element={<Detailpage />} />   
         <Route path="/advancedsearch" element={<AdvancedSearch/>} /> 
         
-        
+       
       </Routes>
     </>
   );

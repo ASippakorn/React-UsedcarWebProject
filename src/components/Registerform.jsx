@@ -38,8 +38,8 @@ const Registerform = () => {//may add toastify later
   return (
     <>
         <h3>Register</h3>
-      <form onSubmit={handleSubmit} class="login">
-      <div class="container" >
+      <form onSubmit={handleSubmit} className="login">
+      <div className="container" >
         
         <label htmlFor="fname">First name:</label>
         <br />

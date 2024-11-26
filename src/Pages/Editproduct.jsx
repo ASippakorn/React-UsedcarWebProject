@@ -20,7 +20,7 @@ const Editproduct = () => {
     fuel: '',
     insurance: '',
     price: '',
-    certified: false,
+    carcertified: false,
   },[id]);
 
   // Fetch car details and populate the form
@@ -28,8 +28,8 @@ const Editproduct = () => {
     axios
       .get(`http://localhost:3030/edit/car/${id}`)
       .then((res) => {
-        setForm(res.data);
-        console.log(res.data)
+        setForm(res.data.car);
+        console.log(res.data.car)
       })
       .catch((err) => console.error(err));
   }, [id]);
@@ -194,7 +194,7 @@ const Editproduct = () => {
               type="checkbox"
               name="certified"
               onChange={handleChange}
-              checked={form.certified}
+              checked={form.carcertified}
             />{' '}
             Certified used car
           </label>{' '}

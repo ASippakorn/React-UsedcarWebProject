@@ -3,11 +3,11 @@ import Registerform from "../components/Registerform";
 import Header from "../Components/header";
 import Footer from "../components/Footer";
 
-import AdminNavbar from "../components/Adminnavbar";
+import Navbar from "../components/Navbar";
 const Adduserpage =()=>(
     <>
         <Header/>
-        <AdminNavbar/>
+        <Navbar/>
         <Registerform/>
         <Footer/>
     </>

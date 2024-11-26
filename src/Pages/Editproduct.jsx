@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 const Editproduct = () => {
 
   const { id } = useParams();
+  console.log(id)
   const [form, setForm] = useState({
     image: null,
     cartype: '',
@@ -20,7 +21,7 @@ const Editproduct = () => {
     insurance: '',
     price: '',
     certified: false,
-  });
+  },[id]);
 
   // Fetch car details and populate the form
   useEffect(() => {
@@ -28,6 +29,7 @@ const Editproduct = () => {
       .get(`http://localhost:3030/edit/car/${id}`)
       .then((res) => {
         setForm(res.data);
+        console.log(res.data)
       })
       .catch((err) => console.error(err));
   }, [id]);

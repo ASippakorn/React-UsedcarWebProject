@@ -19,7 +19,8 @@ const Loginform = () => {//may add toastify later
     e.preventDefault();
     console.log("Submitting Form:", form);
     try {
-      const res = await axios.post(`http://localhost:3030/login`, form);
+      const res = await axios.post(`http://localhost:3030/login`, form,{},
+        { withCredentials: true }) // Include cookies in the request);
       console.log("Response from server:", res.data);
       // alert("Registration successful!");
       navigate("/");

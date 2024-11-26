@@ -1,19 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+
 import { useState, useEffect } from 'react'
+
 const Navbar = () => {
+  axios.defaults.withCredentials = true
   const [isAuth, setisAuth] = useState(false)
   const [currentUser, setCurrentUser] = useState(null);
   const getAuth = async () => {
     try {
-      const response = await axios.post(`http://localhost:3030/auth`,{},
-      { withCredentials: true } // Include cookies in the request
+      const response = await axios.post(`http://localhost:3030/auth`
+     
     )
 
       setisAuth(response.data.isAuth)
       setCurrentUser(response.data.currentUser)
       console.log(response.data);
+      console.log(response.data.currentUser)
     } catch (error) {
       console.log('Auth Check Failed', error)
     }
@@ -23,14 +27,14 @@ const Navbar = () => {
     getAuth();
   }, [])
  
-  // const handleLogout = async () => {
-  //   try {
-  //     await axios.post(`/http://localhost:3030/logout`);
-  //     window.location.href = "/";
-  //   } catch (error) {
-  //     console.error("Logout failed:", error);
-  //   }
-  // };
+  const handleLogout = async () => {
+    try {
+      await axios.post(`http://localhost:3030/logout`);
+      window.location.href = "/";
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
   return (
     <>
       <ul className="Navbar">
@@ -47,7 +51,7 @@ const Navbar = () => {
       </ul>
 
 
-      {typeof user != "undefined" ? (
+      {isAuth ? (
         <>
           <ul>
             <li>Welcome, {currentUser.username || currentUser.email}!</li>

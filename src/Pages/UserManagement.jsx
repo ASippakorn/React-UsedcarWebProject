@@ -2,14 +2,15 @@ import React from 'react'
 import Comusermanagement from '../components/Comusermanagement'
 import Header from '../Components/header';
 import Footer from '../components/Footer';
-import AdminNavbar from '../components/Adminnavbar';
+import Navbar from '../components/Navbar';
+
 
 
 const UserManagement = () => {
   return (
     <>
     <Header/>
-    <AdminNavbar/>
+    <Navbar/>
     <Comusermanagement/>
     <Footer/>
    </>

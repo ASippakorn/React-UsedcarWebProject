@@ -7,7 +7,6 @@ import Navbar from "../components/Navbar";
 const Login =()=>(
     <>
         <Header />
-        
         <Loginform/>
         <a href="javascript:history.back()">Back</a>
         <Footer/>

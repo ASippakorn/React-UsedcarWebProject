@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; 
+import './NavBar.css';
+
 const Formaddproduct = () => {
   const [form, setForm] = useState({
     cartype: "",
@@ -60,7 +62,7 @@ const Formaddproduct = () => {
 
   return (
     <div className="form-container">
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <form onSubmit={handleSubmit} encType="multipart/form-data" class="login">
         <div className="form-group">
           <label htmlFor="image">Image</label>
           <input type="file" name="image" onChange={handleFileChange} />
@@ -130,7 +132,8 @@ const Formaddproduct = () => {
           <label htmlFor="price">Price($)</label>
           <input type="number" id="price" name="price" onChange={handleChange} />
         </div>
-        <label className="checkbox">
+        
+        {/* <label className="checkbox">
           <input
             type="checkbox"
             name="certified"
@@ -138,8 +141,13 @@ const Formaddproduct = () => {
             checked={form.certified}
           />{" "}
           Certified used car
-        </label>{" "}
-        <br />
+        </label>{" "} */}
+          
+        <div className="form-group">
+          <input class="" type="checkbox" name="certified" onChange={handleChange} checked={form.certified}/>
+          {" "} <label for="certified  " >Certified used car</label>
+        </div>
+        <br />  
         <button type="submit">Create</button>
       </form>
       <a href="javascript:history.back()">Back</a>

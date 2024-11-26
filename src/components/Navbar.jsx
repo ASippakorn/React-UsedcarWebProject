@@ -4,11 +4,13 @@ import axios from 'axios';
 
 import { useState, useEffect } from 'react'
 
+import './NavBar.css';
+
 const Navbar = () => {
   axios.defaults.withCredentials = true
   const [isAuth, setisAuth] = useState(false)
   const [currentUser, setCurrentUser] = useState(null);
-  const getAuth = async () => {
+  const getAuth = async () => { 
     try {
       const response = await axios.post(`http://localhost:3030/auth`
      
@@ -37,7 +39,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <ul className="Navbar">
+      <ul >
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -47,7 +49,14 @@ const Navbar = () => {
         <li>
           <Link to="/team">About US</Link>
         </li>
-
+        
+            <li>
+              <Link to="/login">Log In</Link>
+            </li>
+            <li>
+              <Link to="/register">Register</Link>
+            </li>
+        
       </ul>
 
 
@@ -68,15 +77,7 @@ const Navbar = () => {
         </>
       ) : (
         <>
-          <ul>
-            <li>
-              <Link to="/login">Log In</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
-              
-            </li>
-          </ul>
+
         </>
       )}
     </>

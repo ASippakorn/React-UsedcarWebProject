@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; 
+
+import './NavBar.css';
+
 const Loginform = () => {//may add toastify later
   const [form, setForm] = useState({
     username: "",
@@ -32,8 +35,10 @@ const Loginform = () => {//may add toastify later
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <h3>Login</h3>
+    <h3>Login</h3>
+      <form onSubmit={handleSubmit} class="login" >
+      <div class="container" >
+        
         <label htmlFor="username">Username:</label>
         <br />
         <input
@@ -43,7 +48,7 @@ const Loginform = () => {//may add toastify later
           placeholder="Enter your Username"
           value={form.username}
           onChange={handleChange}
-          required
+          // requiredxxxxxxx
         />
         <br />
         <label htmlFor="password">Password:</label>
@@ -61,7 +66,9 @@ const Loginform = () => {//may add toastify later
         <br />
         <br />
         <button type="submit">Login</button>
+        </div>
       </form>
+      
     </>
   );
 };

@@ -17,7 +17,7 @@ import Editproduct from "./Pages/Editproduct";
 import Protectedroutes from "./components/ีutils/Protectedroutes";
 import Authroutes from "./components/ีutils/Authroutes";
 
-
+import "./App.css";
 const App = () => {
   return (
     <>

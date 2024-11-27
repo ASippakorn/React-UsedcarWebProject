@@ -1,111 +1,706 @@
+:root {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --text-color-secondry: #a4a4a4;
+  --hover-bg: #1a1a1a;
+  --comment-bg: #1e1e1e;
+  --comment-border: #333;
+  --comment-text: #b0b0b0;
+  --comment-highlight: #757575
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
 
-/* Global Element Selectors */
-body {
-  background-color: #000000; /* Black background */
-  color: #ffffff; /* White text */
-  font-family: Arial, sans-serif; /* Modern font style */
+/* Reset and Base */
+* {
   margin: 0;
   padding: 0;
-  line-height: 1.6;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: #ffffff; /* White headers */
-  text-transform: uppercase;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-a {
-  color: #ffffff; /* White links */
-  text-decoration: none;
-}
-
-a:hover {
-  color: #00aced; /* Highlighted color on hover */
-}
-
-/* Class Selectors */
-.btn {
-  background-color: #4a4a4a; /* Gray buttons */
-  color: #ffffff; /* White text */
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s ease-in-out;
-}
-
-.btn:hover {
-  background-color: #707070; /* Lighter gray on hover */
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* ID Selectors */
-#header {
-  background-color: #1c1c1c; /* Darker header background */
-  padding: 20px;
-  text-align: center;
-  border-bottom: 2px solid #4a4a4a;
-}
-
-#footer {
-  background-color: #1c1c1c; /* Darker footer background */
-  padding: 10px;
-  text-align: center;
-  border-top: 2px solid #4a4a4a;
-  margin-top: 20px;
-}
-
-#footer a {
-  color: #ffffff; /* Footer links */
-  font-size: 14px;
-}
-
-/* Additional Modern Styles */
-input[type="text"], input[type="email"], input[type="password"], textarea {
-  background-color: #262626; /* Input background */
-  color: #ffffff; /* Input text */
-  border: 1px solid #4a4a4a;
-  border-radius: 5px;
-  padding: 10px;
-  width: 100%;
   box-sizing: border-box;
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
-  border-color: #707070; /* Highlight input border on focus */
-  outline: none;
+html, body, #root {
+  height: 100%;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ความสูงอย่างน้อยเต็มหน้าจอ */
+}
+
+main {
+  flex: 1; /* Allow main content to expand */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Header */
+header {
+  background: linear-gradient(45deg, #a0a0a0, #1a1a1a);
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+/* Navbar */
+.Navbar {
+  display: flex;
+  justify-content: left;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  margin-top: -5px;
+}
+
+.Navbar li {
+  margin: 0 15px;
+}
+
+.Navbar a {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-color-secondry);
+  padding: 5px 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.Navbar a:hover {
+  background-color: var(--hover-bg);
+  color: white;
+  border-radius: 5px;
+}
+
+/* Login/Register Links */
+ul + ul {
+  display: flex;
+  justify-content: right;
+  margin-top: 10px;
+  padding: 10px 0;
+  background-color: #f1f1f1;
+}
+
+ul + ul li {
+  margin: 0 10px;
+}
+
+ul + ul a {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 5px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+ul + ul a:hover {
+  background-color: var(--hover-bg);
+  color: white;
+}
+
+/* Navigation */
+nav {
+  margin: 20px 0;
+  padding: 10px 0;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: #007bff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Main Content */
+main {
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+main p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto; /* ดัน footer ลงล่าง */
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+
+/************************************************
+*   Team Section
+*************************************************/
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.team-member {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+  border: 2px solid var(--bg-color);
+}
+
+.team-member .name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--comment-bg);
+  margin-bottom: 10px;
+}
+
+.team-member .email,
+.team-member .id {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.team-member a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.team-member a:hover {
+  color: #0056b3;
+}
+
+
+/************************************************
+*   Form Container
+*************************************************/
+form {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+form h3 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Back Link */
+a[href="javascript:history.back()"] {
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 1rem;
+}
+
+
+/************************************************
+*   Add product page
+*************************************************/
+.form-container {
+  background-color: #ffffff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  margin: 40px auto;
+}
+
+.form-container h2 {
+  grid-column: 1 / -1; /* Full row */
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.form-container form {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 0.5rem;
+  column-gap: 2rem;
+  box-shadow: none;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-group textarea {
+  resize: none;
+}
+
+.form-group.full-row {
+  grid-column: 1 / -1; /* Full row */
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  grid-column: 1 / -1;
+}
+
+.checkbox input {
+  width: auto;
+}
+
+
+button[type="submit"] {
+  grid-column: 1 / -1;
+  padding: 10px;
+  background-color: var(--text-color);
+  color: var(--hover-bg);
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--hover-bg);
+  color: var(--text-color);
+}
+
+a {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+
+
+/************************************************
+*   Edit product page
+*************************************************/
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+#root > button {
+  grid-column: 1 / -1;
+  padding: 10px;
+  background-color: var(--comment-text);
+  color: var(--hover-bg);
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 60px
+}
+
+#root > button:hover {
+  background-color: var(--hover-bg);
+  color: var(--text-color);
+}
+
+
+
+/************************************************
+*   Search page
+*************************************************/
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+form p {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #ff4d4d;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+
+
+/************************************************
+*   Product management page
+*************************************************/
+.product-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+  padding: 20px 40px;
+  overflow: hidden;
+  margin: 40px auto;
+}
+
+.product-container h1 {
+  font-size: 1.8rem;
+  color: var(--comment-bg);
+  margin-bottom: 20px;
+}
+
+.product-container h1 strong {
+  color: var(--bg-color);
+}
+
+.product-container img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.product-container p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.product-container p strong {
+  color: #333;
+}
+
+.product-container p:nth-of-type(6) {
+  text-align: justify;
+}
+
+
+
+/************************************************
+*   User management page
+*************************************************/
 
 table {
-  width: 100%;
+  width: 80%;
+  margin: 20px auto;
   border-collapse: collapse;
-  margin: 20px 0;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-table th, table td {
-  border: 1px solid #4a4a4a;
+table th,
+table td {
   padding: 10px;
-  text-align: left;
-  color: #ffffff;
+  text-align: center;
+  border: 1px solid #ddd;
 }
 
 table th {
-  background-color: #1c1c1c;
-  text-transform: uppercase;
+  background-color: var(--comment-text);
+  color: var(--comment-bg);
+  font-weight: bold;
 }
 
 table tr:nth-child(even) {
-  background-color: #262626;
+  background-color: #f9f9f9;
 }
 
-.Navbar {
-  background-color: aqua;
+table tr:hover {
+  background-color: #f1f1f1;
+}
+
+table td a,
+table td button {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+table td a {
+  background-color: #28a745;
+}
+
+table td a:hover {
+  background-color: #218838;
+}
+
+table td button {
+  background-color: #dc3545;
+  border: none;
+}
+
+table td button:hover {
+  background-color: #c82333;
+} 
+
+
+
+/************************************************
+*   Advance search page
+*************************************************/
+
+.modal {
+  position: relative;
+}
+
+.modal-content{
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: var(--text-color);
+}
+
+.car-info{
+  display: flex;
+  column-gap: 10px;
+}
+
+.form-container {
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-group input[type="range"] {
+  padding: 0;
+  margin-top: 5px;
+}
+
+.form-group span {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.form-group label input[type="radio"] {
+  margin-right: 5px;
+}
+
+#find {
+  padding: 10px 20px;
+  background-color: var(--text-color);
+  color: var(--comment-bg);
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  display: inline-block;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#find:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* ขยายเล็กน้อย */
+}
+
+#find:active {
+  background-color: #004494;
+  transform: scale(0.98); /* ย่อเล็กน้อยเมื่อคลิก */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ลดเงา */
+}
+.form-group input[type="range"] {
+  padding: 0;
+  margin-top: 5px;
+}
+
+.form-group span {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.form-group label input[type="radio"] {
+  margin-right: 5px;
+}
+
+.left-section,
+.right-section {
+  width: 100%;
 }

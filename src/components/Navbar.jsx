@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import { useState, useEffect } from 'react'
 
-import './css/NavBar.css';
+
 
 const Navbar = () => {
   axios.defaults.withCredentials = true
@@ -53,7 +53,7 @@ const Navbar = () => {
         {isAuth ? (
           <>
             <ul>
-              <li>Welcome, {currentUser.username || currentUser.email}!</li>
+              
               <li>
                 <button onClick={handleLogout}>Logout</button>
               </li>
@@ -62,7 +62,10 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/usermanagement">User management</Link>
+
+                
               </li>
+              <li>Welcome, {currentUser.username || currentUser.email}!</li>
             </ul>
           </>
         ) : (

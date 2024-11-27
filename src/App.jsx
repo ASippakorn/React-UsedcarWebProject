@@ -16,7 +16,7 @@ import AdvancedSearch from "./Pages/AdvancedSearch";
 import Editproduct from "./Pages/Editproduct";
 import Protectedroutes from "./components/ีutils/Protectedroutes";
 import Authroutes from "./components/ีutils/Authroutes";
-
+import Edituser from "./Pages/Edituser";
 import "./App.css";
 const App = () => {
   return (
@@ -30,6 +30,7 @@ const App = () => {
 
        
         <Route path="/edit/car/:id" element={<Editproduct/>} />        
+        <Route path="/edit/user/:id" element={<Edituser/>} />     
       
 
        

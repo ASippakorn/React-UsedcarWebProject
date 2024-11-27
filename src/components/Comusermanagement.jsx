@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import axios from "axios"
 import { Link } from 'react-router-dom'
-const Comusermanagement = () => {//Onedit + Ondelete func missing!
+const Comusermanagement = () => {
   const [userdetail, setUserdetail] = useState([])
 
   const getuserdetail = async () => {
@@ -44,6 +44,8 @@ const Comusermanagement = () => {//Onedit + Ondelete func missing!
         <table border="1" style={{ borderCollapse: 'collapse', width: '100%' }}>
           <thead>
             <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
               <th>Email</th>
               <th>Username</th>
               <th>Phonenum</th>
@@ -53,12 +55,13 @@ const Comusermanagement = () => {//Onedit + Ondelete func missing!
           <tbody>
             {userdetail.map((user, key) => (
               <tr key={key}>
+                <td>{user.fname}</td>
+                <td>{user.lname}</td>
                 <td>{user.email}</td>
                 <td>{user.username}</td>
                 <td>{user.phonenum}</td>
         
-                {/* <td>{item.phonenum}</td> */}
-                <td><Link to={`edit/car/${user.UserID}`}>Edit</Link></td>
+                <td><Link to={`http://localhost:5173/edit/user/${user.UserID}`}>Edit</Link></td>
                 <td> <button onClick={() => onDelete(user.UserID)}>Delete</button></td>
               </tr>
             ))}

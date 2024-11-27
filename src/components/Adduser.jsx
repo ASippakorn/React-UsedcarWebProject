@@ -124,7 +124,7 @@ const Adduser = () => {//may add toastify later
             
           </select>
         <br />
-        <button type="submit">Register</button>
+        <button type="submit">Add user</button>
         </div>
       </form>
     

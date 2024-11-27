@@ -72,6 +72,7 @@ const AdvancedSearch = () => {
 
     return (
         <>
+        <section>
             <button type="button" id="openmodal">
                 Advanced Filter
             </button>
@@ -210,6 +211,7 @@ const AdvancedSearch = () => {
                     ))}
                 </ul>
             </div>
+            </section>
         </>
     );
 };

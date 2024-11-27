@@ -25,25 +25,26 @@ const Comproductmanagement = () => {
     }
     try {
       await axios.delete(`http://localhost:3030/delete/car/${id}`)
-      .then(res=>window.location.reload())
-      .catch(err=>console.log(err))
+        .then(res => window.location.reload())
+        .catch(err => console.log(err))
     } catch (err) {
       console.error('Error deleting car:', err);
     }
   };
-  
+
   useEffect(() => {
     getCarDetails();
   }, []);
 
   return (
     <>
-    <h1>PRODUCT MANAGEMENT OVERVIEW</h1>
+      <h1>PRODUCT MANAGEMENT OVERVIEW</h1>
       <div>
         {carDetails && Array.isArray(carDetails) && carDetails.length > 0 ? (
           <table border="1" style={{ borderCollapse: 'collapse', width: '100%' }}>
             <thead>
               <tr>
+                <th>Image</th>
                 <th>Brand</th>
                 <th>Model</th>
                 <th>Year</th>
@@ -53,13 +54,18 @@ const Comproductmanagement = () => {
             <tbody>
               {carDetails.map((car, key) => (
                 <tr key={key}>
+                  <td>            <img
+                    src={car.image || "/img/noimage.jpg"}
+                    alt={car.model}
+                    width="500"
+                  /></td>
                   <td>{car.brand}</td>
                   <td>{car.model}</td>
                   <td>{car.year}</td>
-                
+
                   <td>
                     <Link to={`http://localhost:5173/edit/car/${car.carid}`}>Edit</Link></td>
-                    <td><button onClick={() => onDelete(car.carid)}>Delete</button>
+                  <td><button onClick={() => onDelete(car.carid)}>Delete</button>
                   </td>
                 </tr>
               ))}

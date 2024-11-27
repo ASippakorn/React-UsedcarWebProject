@@ -32,7 +32,7 @@ const Detail = () => {
     }
 
     return (
-        <div>
+        <article>
             <h1>{itemDetail.brand}  - <strong>{itemDetail.model} </strong> Year:{itemDetail.Year}</h1>
             <img 
                 src={itemDetail.image || "/img/noimage.jpg"} 
@@ -45,7 +45,8 @@ const Detail = () => {
             <p><strong>Mileage:</strong> {itemDetail.mileage+" KM "} </p>
             <p><strong>Fuel Type:</strong> {itemDetail.fuel}</p>
             <p><strong>Description:</strong> {itemDetail.description}</p>
-        </div>
+            <button >Contact Owner</button>
+        </article>
     );
 };
 

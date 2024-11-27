@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import './AdvancedSearch.css';
+import Header from "../Components/header";
+import Navbar from "../components/Navbar";
 const AdvancedSearch = () => {
     const [filters, setFilters] = useState({
         brand: "",
@@ -32,7 +34,8 @@ const AdvancedSearch = () => {
             const response = await axios.get("http://localhost:3030/search", {
                 params: filters, // Automatically appends non-empty fields as query parameters
             });
-            setResults(response.data.cars || []);
+            setResults(response.data.car || []);
+            console.log(response.data.car)
         } catch (err) {
             console.error("Search failed:", err);
             setError("Failed to fetch search results. Please try again later.");
@@ -137,13 +140,16 @@ const AdvancedSearch = () => {
                             <div className="form-group">
                                 <label>Insurance (Years)</label>
                                 {[1, 2, 3, 4, 5].map((year) => (
-                                    <label key={year}>
+                                    <label key={year} style={{flexDirection: 'row', display: 'flex', justifyContent: 'flex-start'}}>
                                         <input
                                             type="radio"
                                             name="insurance"
                                             value={year}
                                             checked={filters.insurance === String(year)}
                                             onChange={handleInputChange}
+                                            style={{
+                                                width: 'auto'
+                                            }}
                                         />
                                         {year}
                                     </label>
@@ -152,13 +158,16 @@ const AdvancedSearch = () => {
                             <div className="form-group">
                                 <label>Condition</label>
                                 {["Excellent", "Good", "Fair", "Certified"].map((condition) => (
-                                    <label key={condition}>
+                                    <label key={condition} style={{flexDirection: 'row', display: 'flex', justifyContent: 'flex-start'}}>
                                         <input
                                             type="radio"
                                             name="carcondition"
                                             value={condition}
                                             checked={filters.carcondition === condition}
                                             onChange={handleInputChange}
+                                            style={{
+                                                width: 'auto'
+                                            }}
                                         />
                                         {condition}
                                     </label>

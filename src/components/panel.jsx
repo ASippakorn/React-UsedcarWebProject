@@ -55,7 +55,7 @@ const Panel = () => {
                             {filteredDetails.map((item, index) => (//car img
                                 <li key={index}>
                                     {item.image ? (
-                                        <img src={`/pic/noimage.jpg`} alt="Car" />
+                                        <img src={item.image} alt="Car" />
                                     ) : (
                                         <p>
                                             <img
@@ -66,7 +66,7 @@ const Panel = () => {
                                         </p>
                                     )}
                                     {item.brand} - <strong>{item.model}</strong> <br/>
-                                    {/* <button onSubmit = {handleDescrip(item.carid)}>Description..</button> */}
+                                    
                                     <Link to={`/detail/${item.carid}`}>Description..</Link>
                                 </li>
                                

@@ -56,7 +56,12 @@ const Panel = () => {
                             {filteredDetails.map((item, index) => (//car img
                                 <li key={index}>
                                     {item.image ? (
-                                        <img src={item.image} alt="Car" />
+                                        <img src={`uploads/${item.image}`} alt="Car" 
+                                        onError={(e) => {
+                                            // Fallback to the direct URL if the first source fails
+                                            e.target.onerror = null; // Prevent infinite loop
+                                            e.target.src = item.image || "/img/noimage.jpg"; // Fall back to item.image or a placeholder
+                                        }}/>
                                     ) : (
                                         <p>
                                             <img
@@ -67,7 +72,7 @@ const Panel = () => {
                                         </p>
                                     )}
                                     {item.brand} - <strong>{item.model}</strong> <br/>
-                                    
+                                    <legend><strong>Price </strong>{item.price} $</legend>
                                     <Link to={`/detail/${item.carid}`}>Description..</Link>
                                 </li>
                                

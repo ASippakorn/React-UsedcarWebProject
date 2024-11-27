@@ -3,7 +3,13 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 const Comproductmanagement = () => {
   const [carDetails, setCarDetails] = useState([]);
-
+  const imageStyle = {
+    width: '100%',            // Image takes the full width of the container
+    maxWidth: '600px',        // Consistent maximum width
+    height: 'auto',           // Maintain the aspect ratio
+    display: 'block',         // Prevent inline spacing issues
+    margin: '0 auto',         // Center the image horizontally
+  };
   // Fetch car details
   const getCarDetails = async () => {
     try {
@@ -37,7 +43,9 @@ const Comproductmanagement = () => {
   }, []);
 
   return (
+
     <>
+
       <h1>PRODUCT MANAGEMENT OVERVIEW</h1>
       <div>
         {carDetails && Array.isArray(carDetails) && carDetails.length > 0 ? (
@@ -54,11 +62,15 @@ const Comproductmanagement = () => {
             <tbody>
               {carDetails.map((car, key) => (
                 <tr key={key}>
-                  <td>            <img
-                    src={car.image || "/img/noimage.jpg"}
-                    alt={car.model}
-                    width="500"
-                  /></td>
+                  <td>
+                    <img src={`uploads/${car.image}`} alt="Car"
+                      style={imageStyle}
+                      onError={(e) => {
+                        // Fallback to the direct URL if the first source fails
+                        e.target.onerror = null; // Prevent infinite loop
+                        e.target.src = car.image || "/img/noimage.jpg"; // Fall back to car.image or a placeholder
+                      }} />
+                  </td>
                   <td>{car.brand}</td>
                   <td>{car.model}</td>
                   <td>{car.year}</td>

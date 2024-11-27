@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import './AdvancedSearch.css';
-import Header from "../Components/header";
-import Navbar from "../components/Navbar";
 const AdvancedSearch = () => {
     const defaultFilters = {
         brand: "",

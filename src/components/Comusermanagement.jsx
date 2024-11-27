@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import axios from "axios"
 import { Link } from 'react-router-dom'
+import Adduser from './Adduser'
 const Comusermanagement = () => {
   const [userdetail, setUserdetail] = useState([])
 
@@ -37,7 +38,8 @@ const Comusermanagement = () => {
 
   return (// Email Username password Phonenum edit delete
     <>
-    
+      <Link to={`http://localhost:5173/adduser`}>Add user Link</Link>
+      
     <div>
       
       {userdetail && Array.isArray(userdetail) && userdetail.length > 0 ? (

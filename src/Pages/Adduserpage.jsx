@@ -1,14 +1,15 @@
 import React from "react";
-import Registerform from "../components/Registerform";
+
 import Header from "../Components/header";
 import Footer from "../components/Footer";
 
 import Navbar from "../components/Navbar";
+import Adduser from "../components/Adduser";
 const Adduserpage =()=>(
     <>
         <Header/>
         <Navbar/>
-        <Registerform/>
+        <Adduser/>
         <Footer/>
     </>
 );

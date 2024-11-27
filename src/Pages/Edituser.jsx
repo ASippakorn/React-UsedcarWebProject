@@ -25,10 +25,10 @@ const Edituser = () => {
       .then((res) => {
         setForm(res.data.user);
        
-      })
+      }, [id])
       
       .catch((err) => console.error(err));
-  });
+  }, [id]);
     
     const handleChange = (e) => {
         if(!form) 
@@ -49,7 +49,11 @@ const Edituser = () => {
         formData.append(key, form[key]);
       }
 
-      await axios.put(`http://localhost:3030/edit/user/${id}`, formData);
+      await axios.put(`http://localhost:3030/edit/user/${id}`, formData,{
+        headers: { "Content-Type": "application/json" },
+      }
+        
+      );
       alert('User details updated successfully!');
       
       navigate('/')

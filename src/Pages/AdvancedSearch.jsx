@@ -5,15 +5,16 @@ import './AdvancedSearch.css';
 import Header from "../Components/header";
 import Navbar from "../components/Navbar";
 const AdvancedSearch = () => {
-    const [filters, setFilters] = useState({
+    const defaultFilters = {
         brand: "",
-        cartype: "",
-        year: "",
-        carcondition: "",
-        insurance: "",
-        certified: false,
-    });
-
+        cartype: "Other",
+        year: "2014",
+        price: "0",
+        carcondition: "Good",
+        insurance: "1",
+        carcertified: false,
+    };
+    const [filters, setFilters] = useState(defaultFilters);
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -31,7 +32,7 @@ const AdvancedSearch = () => {
         setError(null);
 
         try {
-            const response = await axios.get("http://localhost:3030/search", {
+            const response = await axios.post("http://localhost:3030/advancedsearch", {
                 params: filters, // Automatically appends non-empty fields as query parameters
             });
             setResults(response.data.car || []);
@@ -41,6 +42,7 @@ const AdvancedSearch = () => {
             setError("Failed to fetch search results. Please try again later.");
         } finally {
             setLoading(false);
+            console.log(filters)
         }
     };
 
@@ -79,7 +81,7 @@ const AdvancedSearch = () => {
 
                     {/* Brand Selection */}
                     <div className="car-selection">
-                        {["Bentley", "BMW", "Bugatti",  "McLaren", "Mercedes-Benz", "Porsche", "Rolls-Royce","Other"].map((brand) => (
+                        {["Bentley", "BMW", "Bugatti", "McLaren", "Mercedes-Benz", "Porsche", "Rolls-Royce", "Other"].map((brand) => (
                             <label key={brand} className="car-label">
                                 <img src={`logo/${brand.toLowerCase().replace(" ", "-")}.jpg`} alt={`${brand} logo`} className="car-logo" />
                                 <div className="car-info">
@@ -102,10 +104,10 @@ const AdvancedSearch = () => {
                             <div className="form-group">
                                 <label htmlFor="carType">Car Type</label>
                                 <select name="cartype" id="carType" value={filters.cartype} onChange={handleInputChange}>
-                                    <option value="">Other</option>
+                                    <option value="Other">Other</option>
                                     <option value="SUV">SUV</option>
-                                    <option value="Sedan">Sedan</option>
-                                    <option value="Coupe">Coupe</option>
+                                    <option value="Sport">Sport</option>
+                                    <option value="Luxury">Luxury</option>
                                 </select>
                             </div>
                             <div className="form-group">
@@ -126,21 +128,21 @@ const AdvancedSearch = () => {
 
                         <div className="right-section">
                             <div className="form-group">
-                                <label>Mileage</label>
+                                <label>Price</label>
                                 <input
                                     type="range"
-                                    name="mileage"
+                                    name="price"
                                     min="621"
-                                    max="150000"
-                                    value={filters.mileage || 621}
+                                    max="1500000"
+                                    value={filters.price || 0}
                                     onChange={handleInputChange}
                                 />
-                                <span>{filters.mileage || "621"} miles</span>
+                                <span>{filters.price || "0"} $</span>
                             </div>
                             <div className="form-group">
                                 <label>Insurance (Years)</label>
                                 {[1, 2, 3, 4, 5].map((year) => (
-                                    <label key={year} style={{flexDirection: 'row', display: 'flex', justifyContent: 'flex-start'}}>
+                                    <label key={year} style={{ flexDirection: 'row', display: 'flex', justifyContent: 'flex-start' }}>
                                         <input
                                             type="radio"
                                             name="insurance"
@@ -157,8 +159,8 @@ const AdvancedSearch = () => {
                             </div>
                             <div className="form-group">
                                 <label>Condition</label>
-                                {["Excellent", "Good", "Fair", "Certified"].map((condition) => (
-                                    <label key={condition} style={{flexDirection: 'row', display: 'flex', justifyContent: 'flex-start'}}>
+                                {["Excellent", "Good", "Fair"].map((condition) => (
+                                    <label key={condition} style={{ flexDirection: 'row', display: 'flex', justifyContent: 'flex-start' }}>
                                         <input
                                             type="radio"
                                             name="carcondition"
@@ -171,8 +173,21 @@ const AdvancedSearch = () => {
                                         />
                                         {condition}
                                     </label>
+
                                 ))}
                             </div>
+                            <footer>
+                                <label>Certified Used Car</label>
+
+                                <input
+                                    type="checkbox"
+                                    name="carcertified"
+                                    onChange={handleInputChange}
+                                    checked={filters.carcertified}
+                                />
+
+
+                            </footer>
                         </div>
                     </div>
 

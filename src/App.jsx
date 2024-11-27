@@ -14,7 +14,7 @@ import UserManagement from "./Pages/UserManagement";
 import Search from "./Pages/search";
 import AdvancedSearch from "./Pages/AdvancedSearch";
 import Editproduct from "./Pages/Editproduct";
-import Protectedroutes from "./components/ีutils/Protectedroutes";
+
 import Authroutes from "./components/ีutils/Authroutes";
 import Edituser from "./Pages/Edituser";
 import "./App.css";
@@ -29,20 +29,21 @@ const App = () => {
         <Route path="/search" element={<Search />} />    
 
        
-        <Route path="/edit/car/:id" element={<Editproduct/>} />        
-        <Route path="/edit/user/:id" element={<Edituser/>} />     
+       
       
 
        
-
-        <Route path="/productmanagement" element={<ProductManagement/>} /> 
-        <Route path="/adduser" element={<Adduserpage />} />   
-        <Route path="/usermanagement" element={<UserManagement/>} /> 
-        <Route path="/addproduct" element={<Addproductpage />} />   
-        <Route path="/detail/:id" element={<Detailpage />} />   
-        <Route path="/advancedsearch" element={<AdvancedSearch/>} /> 
-        
-       
+        <Route  element={<Authroutes/>}>
+          <Route path="/productmanagement" element={<ProductManagement/>} /> 
+          <Route path="/adduser" element={<Adduserpage />} />   
+          <Route path="/usermanagement" element={<UserManagement/>} /> 
+          <Route path="/addproduct" element={<Addproductpage />} />   
+          <Route path="/detail/:id" element={<Detailpage />} />   
+          <Route path="/advancedsearch" element={<AdvancedSearch/>} /> 
+          <Route path="/edit/car/:id" element={<Editproduct/>} />        
+          <Route path="/edit/user/:id" element={<Edituser/>} />    
+          
+        </Route>
       </Routes>
     </>
   );

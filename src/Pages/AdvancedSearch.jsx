@@ -33,10 +33,13 @@ const AdvancedSearch = () => {
 
         try {
             const response = await axios.post("http://localhost:3030/advancedsearch", {
-                params: filters, // Automatically appends non-empty fields as query parameters
+                params: {
+                    ...defaultFilters,
+                    filters,//Gonna override df filters if criteria is given
+                 } ,
             });
-            setResults(response.data.car || []);
-            console.log(response.data.car)
+            setResults(response.data || []);
+            console.log(response.data)
         } catch (err) {
             console.error("Search failed:", err);
             setError("Failed to fetch search results. Please try again later.");

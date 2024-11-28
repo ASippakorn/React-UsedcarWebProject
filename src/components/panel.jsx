@@ -4,26 +4,41 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AdvancedSearch from '../Pages/AdvancedSearch'
+
+
 const Panel = () => {
+    const defaultFilters = {
+        brand: "",
+        cartype: "Other",
+        year: "2014",
+        price: "0",
+        carcondition: "Good",
+        insurance: "1",
+        carcertified: false,
+    };
+    
+    const [filters, setFilters] = useState(defaultFilters);
     const [detail, setDetail] = useState([])
     const [search, setSearch] = useState("")
+    const [arr,setArr] =useState([])
 
     
     const getDetail = async () => {
         try {
             const response = await axios.get(`http://localhost:3030/search`)
-            console.log(response)
+            
             setDetail(response.data.car)
+            
 
         } catch (error) {
             console.log('error', error)
         }
     }
     
-    useEffect(() => {
-        getDetail()
+    // useEffect(() => {
+    //     getDetail()
 
-    }, [])
+    // }, [])
     const filteredDetails = detail.filter((item) => {
         if (search === '') {
             return item;
@@ -35,7 +50,7 @@ const Panel = () => {
         }
         return false;
     });
-    console.log(detail);
+    
     return (
         <>
             {
@@ -50,10 +65,14 @@ const Panel = () => {
                         onChange={(e) => setSearch(e.target.value)} // Update state with input value
                     />
                     
-                    <AdvancedSearch/>
-                    {filteredDetails.length > 0 ? (
+                    <AdvancedSearch setFilters={setFilters} filters={filters} setDetail={setArr} detail={arr}/> 
+                    {detail.map((item,index)=>(
+                        <h1>AAAA</h1>
+                    ))}
+
+                    {/* {detail.length > 0 ? (
                         <ul>
-                            {filteredDetails.map((item, index) => (//car img
+                            {detail.map((item, index) => (//car img
                                 <li key={index}>
                                     {item.image ? (
                                         <img src={`uploads/${item.image}`} alt="Car" 
@@ -83,7 +102,7 @@ const Panel = () => {
                         <p>No results found</p>
                     )
 
-                    }
+                    } */}
                 </form>
 
             }

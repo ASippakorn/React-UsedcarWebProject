@@ -2,17 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import './AdvancedSearch.css';
-const AdvancedSearch = () => {
-    const defaultFilters = {
-        brand: "",
-        cartype: "Other",
-        year: "2014",
-        price: "0",
-        carcondition: "Good",
-        insurance: "1",
-        carcertified: false,
-    };
-    const [filters, setFilters] = useState(defaultFilters);
+
+const AdvancedSearch = ({filters,setFilters,setDetail,detail}) => {
+
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -30,20 +22,18 @@ const AdvancedSearch = () => {
         setError(null);
 
         try {
-            const response = await axios.post("http://localhost:3030/advancedsearch", {
-                params: {
-                    ...defaultFilters,
-                    filters,//Gonna override df filters if criteria is given
-                 } ,
-            });
-            setResults(response.data || []);
-            console.log(response.data)
+            const response = await axios.post("http://localhost:3030/advancedsearch",filters
+            );
+            setDetail(response.data.results || []);
+            console.log(response.data.results)
+          
+            console.log(detail,"AAA")
         } catch (err) {
             console.error("Search failed:", err);
             setError("Failed to fetch search results. Please try again later.");
         } finally {
             setLoading(false);
-            console.log(filters)
+            
         }
     };
 

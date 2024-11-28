@@ -38,7 +38,7 @@ const Comusermanagement = () => {
 
   return (// Email Username password Phonenum edit delete
     <>
-      <Link to={`http://localhost:5173/adduser`}>Add user Link</Link>
+      <Link to={`http://localhost:5173/adduser`}>Add user </Link>
       
     <div>
       

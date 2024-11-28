@@ -3,7 +3,7 @@ import axios from "axios";
 
 import './AdvancedSearch.css';
 
-const AdvancedSearch = ({filters,setFilters,setDetail,detail}) => {
+const AdvancedSearch = ({filters,setFilters,setDetail}) => {
 
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -24,12 +24,11 @@ const AdvancedSearch = ({filters,setFilters,setDetail,detail}) => {
         try {
             const response = await axios.post("http://localhost:3030/advancedsearch",filters
             );
-            setDetail(response.data.results || []);
-            console.log(response.data.results)
-          
-            console.log(detail,"AAA")
+
+            setDetail(response.data.results)
+
         } catch (err) {
-            console.error("Search failed:", err);
+
             setError("Failed to fetch search results. Please try again later.");
         } finally {
             setLoading(false);

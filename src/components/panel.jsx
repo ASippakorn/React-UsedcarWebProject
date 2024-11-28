@@ -16,61 +16,60 @@ const Panel = () => {
         insurance: "1",
         carcertified: false,
     };
-    
+
     const [filters, setFilters] = useState(defaultFilters);
+    const [originalDetail, setOriginalDetail] = useState([])
     const [detail, setDetail] = useState([])
     const [search, setSearch] = useState("")
-    const [arr,setArr] =useState([])
 
-    
     const getDetail = async () => {
         try {
             const response = await axios.get(`http://localhost:3030/search`)
-            
-            setDetail(response.data.car)
-            
-
+            const carData = response.data.car
+            setOriginalDetail(carData)
+            setDetail(carData)
         } catch (error) {
             console.log('error', error)
         }
     }
-    
-    // useEffect(() => {
-    //     getDetail()
 
-    // }, [])
-    const filteredDetails = detail.filter((item) => {
-        if (search === '') {
-            return item;
-        } else if (item.model.toLowerCase().includes(search.toLowerCase())) {
-            return item;
+    useEffect(() => {
+        getDetail()
+    }, [])
+
+    const filter = (e) => {
+        const { value } = e.target
+        setSearch(value)
+        if (value === '') {
+            setDetail(originalDetail)
+            return
         }
-        else if (item.brand.toLowerCase().includes(search.toLowerCase())) {
-            return item;
-        }
-        return false;
-    });
-    
+        const newAr = originalDetail.filter((item) =>
+            item.model.toLowerCase().includes(value.toLowerCase()) ||
+            item.brand.toLowerCase().includes(value.toLowerCase())
+        )
+       
+        setDetail(newAr)
+    }
     return (
         <>
             {
 
-                <form > 
-                        <input
+                <form >
+                    <input
                         type="text"
                         id="search"
                         name="search"
                         placeholder="Search Product"
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)} // Update state with input value
+                        
+                        onChange={filter} // Update state with input value
                     />
-                    
-                    <AdvancedSearch setFilters={setFilters} filters={filters} setDetail={setArr} detail={arr}/> 
-                    {detail.map((item,index)=>(
-                        <h1>AAAA</h1>
-                    ))}
 
-                    {/* {detail.length > 0 ? (
+                    {/* Fetch advance search */}
+                    <AdvancedSearch setFilters={setFilters} filters={filters} setDetail={setDetail}  />
+
+
+                     {detail.length > 0 ? (
                         <ul>
                             {detail.map((item, index) => (//car img
                                 <li key={index}>
@@ -102,7 +101,7 @@ const Panel = () => {
                         <p>No results found</p>
                     )
 
-                    } */}
+                    } 
                 </form>
 
             }

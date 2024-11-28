@@ -40,8 +40,8 @@ const Panel = () => {
         <>
             {
 
-                <form >
-                    <input
+                <form > 
+                        <input
                         type="text"
                         id="search"
                         name="search"
@@ -57,6 +57,7 @@ const Panel = () => {
                                 <li key={index}>
                                     {item.image ? (
                                         <img src={`uploads/${item.image}`} alt="Car" 
+                                        style={{ width: "60%", height: "auto" }}
                                         onError={(e) => {
                                             // Fallback to the direct URL if the first source fails
                                             e.target.onerror = null; // Prevent infinite loop

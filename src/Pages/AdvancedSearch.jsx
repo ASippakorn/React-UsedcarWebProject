@@ -29,7 +29,7 @@ const AdvancedSearch = ({filters,setFilters,setDetail}) => {
 
         } catch (err) {
 
-            setError("Failed to fetch search results. Please try again later.");
+            setError("Failed to fetch search results. Please try again .");
         } finally {
             setLoading(false);
             

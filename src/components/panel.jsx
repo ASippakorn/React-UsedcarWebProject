@@ -48,7 +48,7 @@ const Panel = () => {
             item.model.toLowerCase().includes(value.toLowerCase()) ||
             item.brand.toLowerCase().includes(value.toLowerCase())
         )
-       
+        
         setDetail(newAr)
     }
     return (

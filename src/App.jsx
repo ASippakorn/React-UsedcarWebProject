@@ -29,10 +29,6 @@ const App = () => {
         <Route path="/search" element={<Search />} />    
 
        
-       
-      
-
-       
         <Route  element={<Authroutes/>}>
           <Route path="/productmanagement" element={<ProductManagement/>} /> 
           <Route path="/adduser" element={<Adduserpage />} />   
@@ -41,8 +37,7 @@ const App = () => {
           <Route path="/detail/:id" element={<Detailpage />} />   
           <Route path="/advancedsearch" element={<AdvancedSearch/>} /> 
           <Route path="/edit/car/:id" element={<Editproduct/>} />        
-          <Route path="/edit/user/:id" element={<Edituser/>} />    
-          
+          <Route path="/edit/user/:id" element={<Edituser/>} />   
         </Route>
       </Routes>
     </>

@@ -9,9 +9,11 @@ const Loginform = () => {//may add toastify later
     username: "",
     password: "",
   });
-  const onChange =() =>{
-    
-  }
+  const [captchaToken, setCaptchaToken] = useState("");
+
+  const handleCaptchaChange = (token) => {
+    setCaptchaToken(token);
+  };
   const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,7 +25,12 @@ const Loginform = () => {//may add toastify later
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     console.log("Submitting Form:", form);
+    if (!captchaToken) {
+      alert("Please complete the ReCAPTCHA.");
+      return;
+    }
     try {
       const res = await axios.post(`http://localhost:3030/login`, form, {},
         { withCredentials: true }) // Include cookies in the request);
@@ -67,8 +74,8 @@ const Loginform = () => {//may add toastify later
             minLength="4"
           />
           <ReCAPTCHA
-            sitekey="Your client site key"
-            onChange={onChange}
+            sitekey="6LdueI0qAAAAAH5NihtUSNNY4ZYPpURWod912nZc"
+            onChange={handleCaptchaChange}
           />,
           <br />
           <br />

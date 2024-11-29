@@ -51,6 +51,7 @@ const Comusermanagement = () => {
               <th>Email</th>
               <th>Username</th>
               <th>Phonenum</th>
+              <th>Log Attempt</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -62,9 +63,10 @@ const Comusermanagement = () => {
                 <td>{user.email}</td>
                 <td>{user.username}</td>
                 <td>{user.phonenum}</td>
+                
         
-                <td><Link to={`http://localhost:5173/edit/user/${user.UserID}`}>Edit</Link></td>
-                <td> <button onClick={() => onDelete(user.UserID)}>Delete</button></td>
+                <td><Link to={`http://localhost:5173/edit/user/${user.userID}`}>Edit</Link></td>
+                <td> <button onClick={() => onDelete(user.userID)}>Delete</button></td>
               </tr>
             ))}
           </tbody>

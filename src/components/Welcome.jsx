@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-
 const Navigation = () => (
   <nav className="bg-white shadow-md py-4">
     <div className="container mx-auto flex justify-center space-x-4">

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import ReCAPTCHA from "react-google-recaptcha";
 
-const Loginform = () => {//may add toastify later
+const Loginform = () => {
   const [form, setForm] = useState({
     username: "",
     password: "",
@@ -35,7 +35,7 @@ const Loginform = () => {//may add toastify later
       const res = await axios.post(`http://localhost:3030/login`, form, {},
         { withCredentials: true }) // Include cookies in the request);
       console.log("Response from server:", res.data);
-      // alert("Registration successful!");
+      
       navigate("/");
     } catch (err) {
       console.error("Error during registration:", err);

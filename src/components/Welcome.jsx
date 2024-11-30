@@ -1,8 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./css/welcome.css"
+
+const Welcome = () => (
+  <main className="container mx-auto mt-8 bg-cover bg-center" style={{ backgroundImage: '../../public/img/home.jpg' }}>
+  <p className="text-center text-lg text-gray-100">
+    Welcome to ABC USED CAR. Explore our collection!
+  </p>
 
 
-const Navigation = () => (
+
   <nav className="bg-white shadow-md py-4">
     <div className="container mx-auto flex justify-center space-x-4">
       
@@ -14,6 +21,7 @@ const Navigation = () => (
     </Link>
     </div>
   </nav>
+  </main>
 );
 
-export default Navigation;
+export default Welcome;

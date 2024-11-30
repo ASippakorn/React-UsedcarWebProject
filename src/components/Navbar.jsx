@@ -33,7 +33,7 @@ const Navbar = () => {
 
     getAuth();
   }, [])
-
+//user logout
   const handleLogout = async () => {
     try {
       await axios.post(`http://localhost:3030/logout`);

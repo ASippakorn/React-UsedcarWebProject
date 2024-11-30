@@ -14,7 +14,7 @@ const Adduser = () => {
     phonenum: "",
     role:"",
   });
-  const navigate = useNavigate();
+  const navigate = useNavigate();  // ใช้เมื่อเปลี่ยนหน้า
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm(() => ({
@@ -22,7 +22,7 @@ const Adduser = () => {
       [name]: value, // Update only the changed field
     }));
   };
-
+  // function สำหรับการส่งข้อมูล
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Submitting Form:", form);

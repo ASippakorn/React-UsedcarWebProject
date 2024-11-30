@@ -1,0 +1,17 @@
+/*register text*/
+#registerheader {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  color:black; 
+  font-weight:bold;
+  padding: 20px;
+  width: 300px; 
+  margin: 0 auto; 
+  font-size: 30px;
+  margin-top: 10px;
+}
+/*ตรง register form*/
+.boxregister{
+  margin-top:-30px;
+}

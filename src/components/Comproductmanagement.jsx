@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import styles from "../components/css/comproductmanagement.module.css"
 const Comproductmanagement = () => {
   const [carDetails, setCarDetails] = useState([]);
   const imageStyle = {
@@ -46,7 +47,7 @@ const Comproductmanagement = () => {
 
     <>
 
-      <h1>PRODUCT MANAGEMENT OVERVIEW</h1>
+      <h1 className={styles.header}>PRODUCT MANAGEMENT OVERVIEW</h1>
       <div>
         {carDetails && Array.isArray(carDetails) && carDetails.length > 0 ? (
           <table border="1" style={{ borderCollapse: 'collapse', width: '100%' }}>

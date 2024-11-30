@@ -4,12 +4,17 @@ import axios from 'axios';
 
 import { useState, useEffect } from 'react'
 
-import "./css/NavBar.css"
+import styles from "../components/css/navbar.module.css"
+import { FaHome, FaCar, FaInfoCircle, FaUser, FaSignInAlt, FaUserPlus, FaSignOutAlt, FaProductHunt } from 'react-icons/fa';
+
+
 
 const Navbar = () => {
-  axios.defaults.withCredentials = true
+  axios.defaults.withCredentials = true // อนุญาติCookie
   const [isAuth, setisAuth] = useState(false)
   const [currentUser, setCurrentUser] = useState(null);
+
+   // check status
   const getAuth = async () => {
     try {
       const response = await axios.post(`http://localhost:3030/auth`
@@ -39,45 +44,45 @@ const Navbar = () => {
   };
   return (
     <>
-      <ul className="Navbar" >
+      <ul className={styles.container} >
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" className={styles.content}> <FaHome /> Home</Link>
         </li>
         <li>
-          <Link to="/Addproduct">Sell car with us</Link>
+          <Link to="/Addproduct" className={styles.content}> <FaCar />Sell car with us</Link>
         </li>
         <li>
-          <Link to="/team">About US</Link>
+          <Link to="/team" className={styles.content}> <FaInfoCircle /> About US</Link>
         </li>
 
         {isAuth ? (
           <>
-            <ul className="Navbar">
+           
               
               <li>
-                <button onClick={handleLogout}>Logout</button>
+                <button onClick={handleLogout} className={styles.content}> <FaSignOutAlt/>Logout </button>
               </li>
               <li>
-                <Link to="/productmanagement">Product Management</Link>
+                <Link to="/productmanagement" className={styles.content}> <FaProductHunt />Product Management</Link>
               </li>
               <li>
-                <Link to="/usermanagement">User management</Link>
+                <Link to="/usermanagement"className={styles.content}>  <FaUser />  User management</Link>
 
                 
               </li>
               <li>Welcome, {currentUser.username || currentUser.email}!</li>
-            </ul>
+            
           </>
         ) : (
           <>
-          <ul className="Navbar">
+          
             <li>
-              <Link to="/login">Log In</Link>
+              <Link to="/login" className={styles.content}> <FaSignInAlt />Log In</Link>
             </li>
             <li>
-              <Link to="/register">Register</Link>
+              <Link to="/register"className={styles.content}> <FaUserPlus />Register</Link>
             </li>
-            </ul>
+           
           </>
         )}
       </ul>

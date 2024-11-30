@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; 
-
+import styles from "../components/css/register.module.css"
 
 const Registerform = () => {//may add toastify later
   
@@ -37,7 +37,11 @@ const Registerform = () => {//may add toastify later
 
   return (
     <>
+    <div className={styles.container}>
+    <div id={styles["registerheader"]}>
         <h3>Register</h3>
+        </div>
+        <div className={styles.boxregister}>
       <form onSubmit={handleSubmit} className="login">
       <div className="container" >
         
@@ -106,6 +110,8 @@ const Registerform = () => {//may add toastify later
         <button type="submit">Register</button>
         </div>
       </form>
+      </div>
+      </div>
     </>
   );
 };

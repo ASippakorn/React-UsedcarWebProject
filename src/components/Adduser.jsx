@@ -3,8 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom"; 
 
 
-const Adduser = () => {//may add toastify later
-  
+const Adduser = () => {
+  // create state for collect data from form
   const [form, setForm] = useState({
     fname: "",
     lname: "",

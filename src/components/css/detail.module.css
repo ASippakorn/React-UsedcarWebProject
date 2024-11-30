@@ -1,0 +1,39 @@
+/*page set up*/
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+/*ิbox car description*/
+.flexcontainer{
+    display: flex;
+    gap:20px;
+    align-items: center;
+}
+
+
+/* inside car description */
+.textcontent{
+    text-align: left;
+}
+/* car name*/
+.carheader{
+    color: black;
+    font-size: 40px;
+}
+
+/*button*/
+.contactbutton{
+    background-color: #04AA6D;
+    border: none;
+    margin: 10px;
+    font-weight: bold;
+    padding: 5px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+
+}

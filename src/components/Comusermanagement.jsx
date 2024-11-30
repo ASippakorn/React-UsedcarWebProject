@@ -51,7 +51,7 @@ const Comusermanagement = () => {
               <th>Email</th>
               <th>Username</th>
               <th>Phonenum</th>
-              <th>Log Attempt</th>
+              
               <th>Actions</th>
             </tr>
           </thead>
